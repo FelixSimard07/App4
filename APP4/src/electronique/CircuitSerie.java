@@ -4,16 +4,16 @@ import java.util.List;
 
 public class CircuitSerie extends Circuit {
 
-    public CircuitSerie (List<Composant> composants) {
-        super(composants);
+    public CircuitSerie (List<Composant> circuitSerie) {
+        super(circuitSerie);
     }
 
     @Override
     public double calculerResistance() {
-        double total = 0;
+        double somme = 0;
         for (Composant c : composants) {
-            total += c.calculerResistance();
+            somme += c.calculerResistance();
         }
-        return total;
+        return somme;
     }
 }

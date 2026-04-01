@@ -4,8 +4,8 @@ import java.util.List;
 
 public class CircuitParallele extends Circuit{
 
-    public CircuitParallele(List<Composant> composants) {
-        super(composants);
+    public CircuitParallele(List<Composant> circuitParallele) {
+        super(circuitParallele);
     }
 
     @Override
