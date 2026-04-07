@@ -12,7 +12,7 @@ public class CircuitParallele extends Circuit{
     public double calculerResistance() {
         double inverse = 0;
         for (Composant c : composants) {
-            inverse += 1 / c.calculerResistance();
+            inverse += 1.0 / c.calculerResistance();
         }
         return 1/inverse;
     }
