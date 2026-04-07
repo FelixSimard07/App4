@@ -25,7 +25,6 @@ public class CircuitApp {
                 System.out.println("Aucun fichier JSON trouvé.");
             }
 
-            // 📂 Affichage des fichiers
             System.out.println("=== Choisir un circuit ===");
             for (int i = 0; i < fichiers.length; i++) {
                 System.out.println("[" + (i + 1) + "] " + fichiers[i].getName());
@@ -33,7 +32,6 @@ public class CircuitApp {
 
             int choix = -1;
 
-            // 🔒 Validation utilisateur
             while (true) {
                 System.out.print("Votre choix: ");
 
@@ -44,13 +42,13 @@ public class CircuitApp {
                         break;
                     }
                 } else {
-                    sc.next(); // nettoyer entrée invalide
+                    sc.next();
                 }
 
                 System.out.println("Entrée invalide. Réessaie.");
             }
 
-            // ⚙️ Traitement
+
             try {
                 String chemin = fichiers[choix - 1].getPath();
 
@@ -58,14 +56,13 @@ public class CircuitApp {
 
                 double resultat = circuit.calculerResistance();
 
-                System.out.printf("Résistance équivalente : %.2f Ω\n", resultat);
+                System.out.printf("Résistance équivalente : " + resultat + " Ω");
 
             } catch (Exception e) {
                 System.out.println("Erreur : " + e.getMessage());
             }
 
-            // 🔁 Menu fin
-            System.out.println("\n[R] Tester un autre fichier");
+            System.out.println("[R] Tester un autre fichier");
             System.out.println("[Q] Quitter");
 
             String action = sc.next();
