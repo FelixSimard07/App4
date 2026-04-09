@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import electronique.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,13 @@ public class CircuitBuilder {
 
     public Composant construireCircuit(String chemainFichier) {
         ObjectMapper mapper = new ObjectMapper();
-        return null;
+
+        try {
+            JsonNode branche = mapper.readTree(new File(chemainFichier));
+            return lireComposant(branche.get("circuit"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private Composant lireComposant(JsonNode node) {

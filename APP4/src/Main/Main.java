@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(new File("donnees").getAbsolutePath());
+//        System.out.println(new File("donnees").getAbsolutePath());
 
 //        Composant r1 = new Resistance(1.1);
 //        Composant r2 = new Resistance(1.5);

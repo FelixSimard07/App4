@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CircuitApp {
 
-    private static final String DOSSIER = "donnees";
+    private static final String DOSSIER = "C:/Users/2445549/Desktop/App4/APP4/src/donnees/fichiers_json";
 
     public static void main(String[] args) {
 
@@ -18,22 +18,26 @@ public class CircuitApp {
 
         while (continuer) {
 
+
             File dossier = new File(DOSSIER);
-            File[] fichiers = dossier.listFiles((dir, name) -> name.endsWith(".json"));
+            File[] fichiers = dossier.listFiles((s, name) -> name.endsWith(".json"));
 
             if (fichiers == null || fichiers.length == 0) {
                 System.out.println("Aucun fichier JSON trouvé.");
             }
 
-            System.out.println("=== Choisir un circuit ===");
+            System.out.println();
+            System.out.println("*** Choisir un circuit ***");
+            System.out.println();
+
             for (int i = 0; i < fichiers.length; i++) {
-                System.out.println("[" + (i + 1) + "] " + fichiers[i].getName());
+                System.out.println("[" + (i + 1) + "] pour " + fichiers[i].getName());
             }
 
             int choix = -1;
 
             while (true) {
-                System.out.print("Votre choix: ");
+                System.out.print("Entré ici : ");
 
                 if (sc.hasNextInt()) {
                     choix = sc.nextInt();
@@ -56,23 +60,35 @@ public class CircuitApp {
 
                 double resultat = circuit.calculerResistance();
 
-                System.out.printf("Résistance équivalente : " + resultat + " Ω");
+                System.out.println("Résistance équivalente : " + (String.format("%.2f", resultat)) + " Ω");
 
             } catch (Exception e) {
                 System.out.println("Erreur : " + e.getMessage());
             }
+            String action;
 
-            System.out.println("[R] Tester un autre fichier");
-            System.out.println("[Q] Quitter");
+            while (true) {
+                System.out.println();
+                System.out.println("       === MENU ===");
+                System.out.println();
+                System.out.println("[Q] pour fermer l'application");
+                System.out.println("[R] pour tester un autre circuit");
+                System.out.print("Entré ici : ");
+                action = sc.next();
 
-            String action = sc.next();
+                if (action.equalsIgnoreCase("R") || action.equalsIgnoreCase("Q")) {
+                    break;
+                }
+
+                System.out.println("Entrée invalide. Tapez R ou Q.");
+            }
 
             if (action.equalsIgnoreCase("Q")) {
                 continuer = false;
                 System.out.println("Fermeture de l'application.");
+                System.out.println("Bonne journée");
             }
         }
-
         sc.close();
     }
 }
