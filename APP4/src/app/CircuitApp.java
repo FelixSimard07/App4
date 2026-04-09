@@ -72,7 +72,7 @@ public class CircuitApp {
                 System.out.println("       === MENU ===");
                 System.out.println();
                 System.out.println("[Q] pour fermer l'application");
-                System.out.println("[R] pour tester un autre circuit");
+                System.out.println("[R] pour tester un autre fichier");
                 System.out.print("Entré ici : ");
                 action = sc.next();
 
